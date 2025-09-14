@@ -7,6 +7,8 @@ Animate any text with beautiful per-character effects directly in the browser.
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
+![image](https://github.com/MdSaifAli063/Kinetic-Typography-Generator/blob/607d3b5139b4b2cf78d39f4f4f2a1936db9c4fd0/Screenshot%202025-09-15%20003550.png)
+
 ---
 
 ## 🎯 Features

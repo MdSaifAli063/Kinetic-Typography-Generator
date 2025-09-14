@@ -1,0 +1,360 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  /* Light blue + light orange palette */
+  --bg-blue: #e7f3ff;      /* very light blue */
+  --bg-orange: #fff2e6;    /* very light orange */
+  --accent-blue: #56b4ff;  /* bright pastel blue */
+  --accent-orange: #ffb36b;/* bright pastel orange */
+
+  /* Surfaces and borders */
+  --card-bg: rgba(255, 255, 255, 0.70);
+  --card-border: rgba(255, 255, 255, 0.80);
+  --input-bg: rgba(255, 255, 255, 0.92);
+
+  /* Text & feedback */
+  --text: #1f2a44;
+  --muted: #5b6b86;
+  --ring-blue: rgba(86, 180, 255, 0.45);
+  --ring-orange: rgba(255, 179, 107, 0.40);
+
+  /* Shadows */
+  --shadow-1: 0 8px 22px rgba(31, 42, 68, 0.10);
+  --shadow-2: 0 18px 32px rgba(31, 42, 68, 0.16);
+
+  /* Radii and spacing */
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 16px;
+  --space-4: 22px;
+  --space-5: 28px;
+  --space-6: 36px;
+}
+
+/* Reset / base */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 800px at 10% 10%, var(--bg-blue) 0%, transparent 40%),
+    radial-gradient(1200px 800px at 90% 15%, var(--bg-orange) 0%, transparent 42%),
+    radial-gradient(900px 600px at 15% 80%, rgba(86, 180, 255, 0.15), transparent 60%),
+    radial-gradient(900px 600px at 85% 85%, rgba(255, 179, 107, 0.15), transparent 60%),
+    linear-gradient(160deg, var(--bg-blue) 0%, var(--bg-orange) 100%);
+  background-attachment: fixed;
+  line-height: 1.5;
+}
+
+/* App container (targets the first wrapper div, not the message box) */
+body > div:not(#message-box) {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+
+header h1 {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Card surfaces: apply directly to controls panel and canvas container */
+main > div:first-of-type,
+#animation-canvas-container {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+  backdrop-filter: saturate(140%) blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle gradient edge for cards */
+main > div:first-of-type::before,
+#animation-canvas-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  padding: 1px; /* thickness of the gradient edge */
+  background: linear-gradient(135deg, rgba(86,180,255,0.65), rgba(255,179,107,0.65));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Controls Panel (first main section) */
+main > div:first-of-type {
+  padding: var(--space-4);
+}
+
+/* Top text input block */
+main > div:first-of-type > div:first-child {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+/* Grid for the smaller controls */
+main > div:first-of-type > div:nth-child(2) {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Each small control group */
+main > div:first-of-type > div:nth-child(2) > div {
+  display: grid;
+  gap: 8px;
+}
+
+/* Labels */
+label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* Inputs, selects, textareas */
+textarea,
+select,
+input[type="number"] {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid rgba(31, 42, 68, 0.10);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.08s ease, background-color 120ms ease;
+  box-shadow: 0 1px 0 rgba(31, 42, 68, 0.04) inset;
+  outline: none;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(31, 42, 68, 0.45) 50%),
+    linear-gradient(135deg, rgba(31, 42, 68, 0.45) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(1.1em),
+    calc(100% - 14px) calc(1.1em);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 36px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+input[type="number"] { appearance: textfield; }
+
+/* Color input */
+input[type="color"] {
+  width: 58px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(31, 42, 68, 0.10);
+  border-radius: var(--radius-md);
+  background: var(--input-bg);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.08s ease;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 6px;
+  border-radius: var(--radius-md);
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 8px;
+}
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 8px;
+}
+
+/* Focus states with duo ring */
+textarea:focus,
+select:focus,
+input[type="number"]:focus,
+input[type="color"]:focus-visible {
+  border-color: var(--accent-blue);
+  box-shadow:
+    0 0 0 3px var(--ring-blue),
+    0 0 0 6px var(--ring-orange);
+}
+
+/* Subtle press effect */
+textarea:active,
+select:active,
+input[type="number"]:active,
+input[type="color"]:active {
+  transform: translateY(1px);
+}
+
+/* Animate Button section (second main child) */
+main > div:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+}
+
+#animate-button {
+  --btn-shadow: 0 12px 24px rgba(86, 180, 255, 0.20), 0 10px 22px rgba(255, 179, 107, 0.22);
+  appearance: none;
+  border: 0;
+  border-radius: 14px;
+  padding: 12px 22px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: white;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
+  background-size: 200% 200%;
+  box-shadow: var(--btn-shadow);
+  transition: transform 120ms ease, filter 200ms ease, box-shadow 200ms ease, background-position 6000ms ease;
+  animation: gradient-shift 10s ease infinite;
+}
+
+#animate-button:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 16px 32px rgba(86, 180, 255, 0.23), 0 12px 24px rgba(255, 179, 107, 0.25);
+}
+
+#animate-button:active {
+  transform: translateY(1px) scale(0.995);
+}
+
+#animate-button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px var(--ring-blue),
+    0 0 0 6px var(--ring-orange),
+    0 16px 32px rgba(86, 180, 255, 0.23),
+    0 12px 24px rgba(255, 179, 107, 0.25);
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animation Canvas (third main child) */
+#animation-canvas-container {
+  padding: var(--space-4);
+}
+
+#animation-canvas {
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(600px 300px at 20% 20%, rgba(86,180,255,0.12), transparent 60%),
+    radial-gradient(600px 300px at 80% 30%, rgba(255,179,107,0.12), transparent 60%),
+    rgba(255, 255, 255, 0.45);
+  border: 1px dashed rgba(31, 42, 68, 0.12);
+  color: var(--text); /* JS can override per character */
+}
+
+/* Improve perf for character spans (created by JS) */
+#animation-canvas .char {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Optional: nice gradient selection color */
+::selection {
+  background: linear-gradient(90deg, rgba(86, 180, 255, 0.35), rgba(255, 179, 107, 0.35));
+}
+
+/* --- Toast bottom-center overrides --- */
+#message-box {
+  position: fixed;
+  z-index: 1000;
+  bottom: 24px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  max-width: min(720px, calc(100% - 48px));
+  width: fit-content;
+  /* Keep your existing visual styles; only adjusting layout.
+     If you previously used a left gradient border, you can remove it for center alignment: */
+  border-left: none;
+  border-image: none;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Responsive tweaks */
+/* Mobile: make it edge-to-edge with padding, and remove translate */
+@media (max-width: 720px) {
+  #message-box {
+    left: 16px;
+    right: 16px;
+    transform: none;
+    max-width: unset;
+    width: auto;
+    bottom: 16px;
+  }
+}
+
+/* Hover elevation for cards */
+main > div:first-of-type:hover,
+#animation-canvas-container:hover {
+  box-shadow: 0 12px 36px rgba(31, 42, 68, 0.14);
+}

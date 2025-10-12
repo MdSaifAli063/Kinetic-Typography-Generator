@@ -150,7 +150,7 @@ Modern evergreen browsers (Chrome, Edge, Firefox, Safari)
   
 script.js sets color on the canvas container; per-character overrides require custom JS
 
-🙏 Credits
+## 🙏 Credits
 
 UI font: Poppins (Google Fonts)
 Animations: Web Animations API

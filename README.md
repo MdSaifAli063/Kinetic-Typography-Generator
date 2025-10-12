@@ -118,8 +118,9 @@ Adjust these to match your brand or preference.
 ```
 
 Add a new animation style
-Add a new function in script.js following the existing pattern, then register it in the switch block:
+- Add a new function in script.js following the existing pattern, then register it in the switch block:
 
+```js
 function animateBounce(spans, duration, stagger) {
   const keyframes = [
     { opacity: 0, transform: "translateY(-20px) scale(0.9)" },
@@ -132,7 +133,7 @@ function animateBounce(spans, duration, stagger) {
   );
 }
 // In runAnimation() switch: case "bounce": await animateBounce(...); break;
-
+```
 
 🧪 Browser Support
 

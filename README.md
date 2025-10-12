@@ -156,7 +156,7 @@ script.js sets color on the canvas container; per-character overrides require cu
 - Animations: Web Animations API
 - Badges: shields.io
 
-📜 License
+## 📜 License
 
 MIT © Your Name
 

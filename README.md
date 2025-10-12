@@ -96,7 +96,7 @@ Colors are defined as CSS variables in style.css:
   --accent-blue: #56b4ff;
   --accent-orange: #ffb36b;
 }
-
+```
 
 Adjust these to match your brand or preference.
 

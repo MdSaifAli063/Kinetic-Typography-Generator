@@ -152,9 +152,9 @@ script.js sets color on the canvas container; per-character overrides require cu
 
 ## 🙏 Credits
 
-UI font: Poppins (Google Fonts)
-Animations: Web Animations API
-Badges: shields.io
+- UI font: Poppins (Google Fonts)
+- Animations: Web Animations API
+- Badges: shields.io
 
 📜 License
 

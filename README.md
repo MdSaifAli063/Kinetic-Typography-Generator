@@ -140,13 +140,13 @@ function animateBounce(spans, duration, stagger) {
 Modern evergreen browsers (Chrome, Edge, Firefox, Safari)
 - Uses the Web Animations API; most current browsers support it. If unavailable, effects gracefully degrade.
 
-🐞 Troubleshooting
+## 🐞 Troubleshooting
 
-No animation?
-Ensure you entered non-empty text
-Try a smaller duration/stagger for more responsive feel
-Check browser console for errors
-Color not updating?
+- No animation?
+- Ensure you entered non-empty text
+- Try a smaller duration/stagger for more responsive feel
+- Check browser console for errors
+- Color not updating?
 script.js sets color on the canvas container; per-character overrides require custom JS
 
 🙏 Credits

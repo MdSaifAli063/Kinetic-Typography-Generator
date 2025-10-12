@@ -103,6 +103,7 @@ Adjust these to match your brand or preference.
 - Toast position (bottom-center)
 - If you want the message box pinned to the bottom center, ensure these overrides are at the end of style.css:
 
+```css
 #message-box {
   position: fixed;
   bottom: 24px;
@@ -114,7 +115,7 @@ Adjust these to match your brand or preference.
 @media (max-width: 720px) {
   #message-box { left: 16px; right: 16px; transform: none; bottom: 16px; }
 }
-
+```
 
 Add a new animation style
 Add a new function in script.js following the existing pattern, then register it in the switch block:

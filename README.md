@@ -147,6 +147,7 @@ Modern evergreen browsers (Chrome, Edge, Firefox, Safari)
 - Try a smaller duration/stagger for more responsive feel
 - Check browser console for errors
 - Color not updating?
+  
 script.js sets color on the canvas container; per-character overrides require custom JS
 
 🙏 Credits

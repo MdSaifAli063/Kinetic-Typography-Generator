@@ -158,5 +158,5 @@ script.js sets color on the canvas container; per-character overrides require cu
 
 ## 📜 License
 
-MIT © Your Name
+MIT © Md Saif Ali
 

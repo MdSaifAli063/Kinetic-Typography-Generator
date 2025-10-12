@@ -135,10 +135,10 @@ function animateBounce(spans, duration, stagger) {
 // In runAnimation() switch: case "bounce": await animateBounce(...); break;
 ```
 
-🧪 Browser Support
+## 🧪 Browser Support
 
 Modern evergreen browsers (Chrome, Edge, Firefox, Safari)
-Uses the Web Animations API; most current browsers support it. If unavailable, effects gracefully degrade.
+- Uses the Web Animations API; most current browsers support it. If unavailable, effects gracefully degrade.
 
 🐞 Troubleshooting
 

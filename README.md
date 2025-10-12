@@ -100,8 +100,8 @@ Colors are defined as CSS variables in style.css:
 
 Adjust these to match your brand or preference.
 
-Toast position (bottom-center)
-If you want the message box pinned to the bottom center, ensure these overrides are at the end of style.css:
+- Toast position (bottom-center)
+- If you want the message box pinned to the bottom center, ensure these overrides are at the end of style.css:
 
 #message-box {
   position: fixed;

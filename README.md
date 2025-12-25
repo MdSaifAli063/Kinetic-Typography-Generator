@@ -36,7 +36,6 @@ Then open http://localhost:5173 (or the port you used).
 
 ## 📂 Project Structure
 
-
 . ├── index.html # App markup (UI + controls + canvas) ├── style.css # Theme and layout styles ├── script.js # Animation logic and interactivity └── README.md # This file
 
 ---
